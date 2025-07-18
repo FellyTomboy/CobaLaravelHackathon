@@ -1,0 +1,353 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Serve Laravel",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan serve --host=0.0.0.0 --port=8000",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Make Model (-a)",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan make:model ${input:modelName} -a",
+      "detail": "Buat model + migration + factory + seeder + controller",
+      "problemMatcher": []
+    },
+    {
+      "label": "Make Model (-m)",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan make:model ${input:modelName} -m",
+      "detail": "Buat model + migration",
+      "problemMatcher": []
+    },
+    {
+      "label": "Make Model (-ms)",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan make:model ${input:modelName} -ms",
+      "detail": "Buat model + migration + seeder",
+      "problemMatcher": []
+    },
+    {
+      "label": "Make Model (kosong)",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan make:model ${input:modelName}",
+      "detail": "Buat model saja (tanpa tambahan)",
+      "problemMatcher": []
+    },
+    {
+      "label": "Make Controller (Resource)",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan make:controller ${input:controllerName} --resource",
+      "detail": "Buat controller dengan resource (REST API)",
+      "problemMatcher": []
+    },
+    {
+      "label": "Make Controller (API)",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan make:controller ${input:controllerName} --api",
+      "detail": "Buat controller API-only (tanpa view)",
+      "problemMatcher": []
+    },
+    {
+      "label": "Make Middleware",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan make:middleware ${input:middlewareName}",
+      "detail": "Buat middleware",
+      "problemMatcher": []
+    },
+    {
+      "label": "Make Request",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan make:request ${input:requestName}",
+      "detail": "Buat form request (validasi)",
+      "problemMatcher": []
+    },
+    {
+      "label": "Make Migration",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan make:migration ${input:migrationName}",
+      "detail": "Buat file migration",
+      "problemMatcher": []
+    },
+      {
+      "label": "Make Migration (Table already exist)",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan make:migration ${input:migrationName} --table=${input:tableName}",
+      "detail": "Buat file migration dengan tabel yang sudah ada",
+      "problemMatcher": []
+    },
+    {
+      "label": "Make Seeder",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan make:seeder ${input:seederName}",
+      "detail": "Buat database seeder",
+      "problemMatcher": []
+    },
+      {
+      "label": "Make Factory",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan make:factory ${input:factoryName} --model=${input:modelName}",
+      "detail": "Buat file Factory",
+      "problemMatcher": []
+    },
+    {
+      "label": "Make Resource",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan make:resource ${input:resourceName}",
+      "detail": "Buat API Resource (JSON formatter)",
+      "problemMatcher": []
+    },
+    {
+      "label": "Make Event",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan make:event ${input:eventName}",
+      "detail": "Buat Event Laravel",
+      "problemMatcher": []
+    },
+    {
+      "label": "Make Listener",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan make:listener ${input:listenerName}",
+      "detail": "Buat Listener untuk Event",
+      "problemMatcher": []
+    },
+    {
+      "label": "Make Job (Queue)",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan make:job ${input:jobName}",
+      "detail": "Buat Job untuk Queue",
+      "problemMatcher": []
+    },
+    {
+      "label": "Make Notification",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan make:notification ${input:notificationName}",
+      "detail": "Buat notifikasi (email, broadcast, dll)",
+      "problemMatcher": []
+    },
+    {
+      "label": "Check Laravel Version",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan --version",
+      "detail": "Cek versi laravel",
+      "problemMatcher": []
+    },
+        {
+      "label": "Install API Route",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan install:api",
+      "detail": "Tambahkan api.php dll",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Migration",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan migrate",
+      "detail": "Jalankan migration",
+      "problemMatcher": []
+    },
+    {
+      "label": "Refresh Migration + Run Seeder",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan migrate:fresh --seed",
+      "detail": "Jalankan migration",
+      "problemMatcher": []
+    },
+    {
+      "label": "Cek Status Migration",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan migrate:status",
+      "detail": "Cek status migration",
+      "problemMatcher": []
+    },
+    {
+      "label": "Rollback Migration",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan migrate:rollback",
+      "detail": "Undo migration terakhir",
+      "problemMatcher": []
+    },
+    {
+      "label": "Refresh Migration",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan migrate:refresh",
+      "detail": "Rollback dan jalankan ulang migration",
+      "problemMatcher": []
+    },
+    {
+      "label": "Reset Migration",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan migrate:reset",
+      "detail": "Undo semua migration",
+      "problemMatcher": []
+    },
+    {
+      "label": "Clear View",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan view:clear",
+      "detail": "Clear cache view blade",
+      "problemMatcher": []
+    },
+    {
+      "label": "Clear Config Cache",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan config:clear",
+      "detail": "Clear konfigurasi cache",
+      "problemMatcher": []
+    },
+    {
+      "label": "Clear Route Cache",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan route:clear",
+      "detail": "Clear route cache",
+      "problemMatcher": []
+    },
+    {
+      "label": "Clear Cache",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan cache:clear",
+      "detail": "Clear aplikasi cache",
+      "problemMatcher": []
+    },
+    {
+      "label": "List Route",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan route:list",
+      "detail": "Tampilkan semua route aplikasi",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Tests",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan test",
+      "detail": "Jalankan semua unit dan feature test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Seeders",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan db:seed",
+      "detail": "Jalankan seeder",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Scheduler (Manual)",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan schedule:run",
+      "detail": "Jalankan satu kali scheduler (cron manual)",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Queue Worker",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan queue:work",
+      "detail": "Jalankan Queue Worker (pengolahan job)",
+      "problemMatcher": []
+    },
+    {
+      "label": "Queue Retry All",
+      "type": "shell",
+      "command": "docker compose exec -T laravel-app php artisan queue:retry all",
+      "detail": "Ulangi semua job queue yang gagal",
+      "problemMatcher": []
+    },
+    {
+      "label": "Backup Database ke file SQL",
+      "type": "shell",
+      "command": "docker compose exec -T postgres pg_dump -U laravel -d ${input:databaseName} > backup.sql",
+      "detail": "Backup database ke file SQL",
+      "problemMatcher": []
+    },
+    {
+      "label": "Restore Database dari file SQL",
+      "type": "shell",
+      "command": "docker compose exec -T postgres psql -U laravel -d ${input:databaseName} < backup.sql",
+      "detail": "Kembalikan database dari file SQL",
+      "problemMatcher": []
+    },
+    {
+      "label": "Restore Database dari file SQL",
+      "type": "shell",
+      "command": "docker compose exec -T postgress psql -U postgres -d ${input:databaseName} < backup.sql",
+      "detail": "Kembalikan database dari file SQL",
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "modelName",
+      "type": "promptString",
+      "description": "Masukkan nama model (Contoh: Mahasiswa)"
+    },
+    {
+      "id": "databaseName",
+      "type": "promptString",
+      "description": "Masukkan nama database (lihat di file .env)"
+    },
+    {
+      "id": "controllerName",
+      "type": "promptString",
+      "description": "Masukkan nama controller (Contoh: MahasiswaController)"
+    },
+    {
+      "id": "middlewareName",
+      "type": "promptString",
+      "description": "Masukkan nama middleware"
+    },
+      {
+      "id": "factoryName",
+      "type": "promptString",
+      "description": "Masukkan nama factory"
+    },
+    {
+      "id": "requestName",
+      "type": "promptString",
+      "description": "Masukkan nama request (Contoh: StoreMahasiswaRequest)"
+    },
+    {
+      "id": "migrationName",
+      "type": "promptString",
+      "description": "Masukkan nama migration (Contoh: create_mahasiswa_table)"
+    },
+    {
+      "id": "tableName",
+      "type": "promptString",
+      "description": "Masukkan nama tabel (Contoh: mahasiswas)"
+    },
+    {
+      "id": "seederName",
+      "type": "promptString",
+      "description": "Masukkan nama seeder (Contoh: MahasiswaSeeder)"
+    },
+    {
+      "id": "resourceName",
+      "type": "promptString",
+      "description": "Masukkan nama resource (Contoh: MahasiswaResource)"
+    },
+    {
+      "id": "eventName",
+      "type": "promptString",
+      "description": "Masukkan nama event"
+    },
+    {
+      "id": "listenerName",
+      "type": "promptString",
+      "description": "Masukkan nama listener"
+    },
+    {
+      "id": "jobName",
+      "type": "promptString",
+      "description": "Masukkan nama job"
+    },
+    {
+      "id": "notificationName",
+      "type": "promptString",
+      "description": "Masukkan nama notification"
+    }
+  ]
+}
